@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         backgroundColor:'red',
         height:52,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
     },
     titleHeader:{
         fontSize:20
