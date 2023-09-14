@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Header from '../../../components/Header/Header'
+import Header from '../../components/Header/Header'
 import { styles } from './CategoriesList.style'
 
 const CategoriesList = ({category}) => {
@@ -16,5 +16,3 @@ const CategoriesList = ({category}) => {
 }
 
 export default CategoriesList
-
-const styles = StyleSheet.create({})
