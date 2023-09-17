@@ -3,12 +3,13 @@ import React from 'react'
 import Header from '../../components/Header/Header'
 import CategoryItem from './components/CategoryItem/CategoryItem'
 import categories from '../../data/categories'
+import styles from './Home.style'
 
 const Home = () => {
   return (
    <>
    <Header title={"Home"}/>
-   <View >
+   <View style={styles.container}>
     <FlatList
     data={categories}
     keyExtractor={category => category}
