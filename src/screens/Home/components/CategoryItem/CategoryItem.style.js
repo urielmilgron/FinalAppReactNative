@@ -7,5 +7,8 @@ export default styles = StyleSheet.create({
     padding: 10,
     justifyContent:'center',
     alignItems:'center'
+  },
+  text:{
+    fontFamily:'Roboto'
   }
 })
