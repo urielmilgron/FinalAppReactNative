@@ -1,11 +1,11 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Touchable, TouchableOpacity } from 'react-native'
 import styles from './Products.style'
 import { useState, useEffect } from 'react'
 import allProducts from '../../data/products'
 import products from '../../data/products'
 import { Header, SearchInput } from '../../components'
 
-const Products = ({category}) => {
+const Products = ({category, setProductSelected}) => {
   const [arrayProducts, setArrayProducts] = useState([]) //Array de productos que vienen si selecciona categoría
   const [word, setWord] = useState('') //Palabra o letra que ingresa el usuario
 
@@ -33,7 +33,7 @@ return (
   <View style={styles.productsContainer}>
     <FlatList
     data={arrayProducts}
-    renderItem={({item}) => <View><Text>{item.title}</Text></View>}
+    renderItem={({item}) => <TouchableOpacity onPress={() => setProductSelected(item)}><Text>{item.title}</Text></TouchableOpacity>}
     keyExtractor={item => item.id}
     />
   </View>

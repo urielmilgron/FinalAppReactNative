@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+import styles from './Details.style'
+import { Header } from '../../components'
 
-const Details = () => {
+const Details = ({ product }) => {
   return (
-    <View style={detailsContainer}>
-      <View style={imageContainer}><Image/></View>
-      <View style={titleContainer}><Text>Articulo</Text></View>
-      <View style={descriptionContainer}><Text>Descripción</Text></View>
+    <View style={styles.detailsContainer}>  
+      <Header title={'Detalles'}/>
+      <View style={styles.imageContainer}><Image source={{uri: product.images[2]}} style={styles.image}/></View>
+      <View style={styles.titleContainer}><Text>{product.title}</Text></View>
+      <View style={styles.descriptionContainer}><Text style={styles.text}>{product.description}</Text></View>
     </View>
   )
 }
