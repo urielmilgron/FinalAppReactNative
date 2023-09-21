@@ -20,13 +20,13 @@ export default styles = StyleSheet.create({
     alignItems: "center",
     height: 40,
   },
-  descriptionContainer:{
-    alignItems:'center',
-    width:'100%',
-    height:80,
-    justifyContent:'center',
+  descriptionContainer: {
+    alignItems: "center",
+    width: "100%",
+    height: 80,
+    justifyContent: "center",
   },
-  text:{
-    textAlign:'center'
-  }
+  text: {
+    textAlign: "center",
+  },
 });

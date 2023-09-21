@@ -5,7 +5,7 @@ import CategoryItem from "./components/CategoryItem/CategoryItem";
 import categories from "../../data/categories";
 import styles from "./Home.style";
 
-const Home = ({ setCategorySelected }) => {
+const Home = ({ navigation }) => {
   return (
     <>
       <Header title={"Home"} />
@@ -14,10 +14,7 @@ const Home = ({ setCategorySelected }) => {
           data={categories}
           keyExtractor={(category) => category}
           renderItem={({ item }) => (
-            <CategoryItem
-              setCategorySelected={setCategorySelected}
-              category={item}
-            />
+            <CategoryItem navigation={navigation} category={item} />
           )}
         />
       </View>
