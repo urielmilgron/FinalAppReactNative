@@ -8,7 +8,7 @@ import styles from "./Home.style";
 const Home = ({ navigation }) => {
   return (
     <>
-      <Header title={"Home"} />
+      {/* <Header title={"Home"} /> */}
       <View style={styles.container}>
         <FlatList
           data={categories}

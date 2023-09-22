@@ -28,5 +28,6 @@ export default styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
+    fontFamily: "RobotoLight",
   },
 });

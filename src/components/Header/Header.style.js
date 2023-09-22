@@ -11,6 +11,6 @@ export const styles = StyleSheet.create({
   },
   titleHeader: {
     fontSize: 20,
-    fontFamily:'RobotoMedium'
+    fontFamily: "RobotoMedium",
   },
 });

@@ -2,14 +2,13 @@ import {
   View,
   Text,
   FlatList,
-  Touchable,
   TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
-import styles from "./Products.style";
 import { useState, useEffect } from "react";
 import allProducts from "../../data/products";
-import products from "../../data/products";
 import { Header, SearchInput } from "../../components";
+import styles from "./Products.style";
 
 const Products = ({ navigation, route }) => {
   const [arrayProducts, setArrayProducts] = useState([]); //Array de productos que vienen si selecciona categoría
@@ -40,17 +39,22 @@ const Products = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Header title={category} />
+      {/* <Header title={category} /> */}
       <SearchInput onSearch={setWord} />
       <View style={styles.productsContainer}>
         <FlatList
           data={arrayProducts}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Details", { product: item })}
-            >
-              <Text>{item.title}</Text>
-            </TouchableOpacity>
+            <View style={styles.itemContainer}>
+              <TouchableHighlight
+                style={styles.touchableItem}
+                onPress={() =>
+                  navigation.navigate("Details", { product: item })
+                }
+              >
+                <Text style={styles.textItem}>{item.title}</Text>
+              </TouchableHighlight>
+            </View>
           )}
           keyExtractor={(item) => item.id}
         />
