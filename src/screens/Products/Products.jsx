@@ -2,7 +2,6 @@ import {
   View,
   Text,
   FlatList,
-  TouchableOpacity,
   TouchableHighlight,
 } from "react-native";
 import { useState, useEffect } from "react";

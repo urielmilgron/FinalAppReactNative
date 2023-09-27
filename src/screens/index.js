@@ -1,6 +1,6 @@
 import Home from "./Home/Home";
-import CategoriesList from "./CategoriesList/CategoriesList";
 import Products from "./Products/Products";
 import Details from "./Details/Details";
+import Cart from "./Cart/Cart";
 
-export { Home, CategoriesList, Products, Details }
+export { Home, Products, Details, Cart }
