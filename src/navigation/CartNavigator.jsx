@@ -7,6 +7,7 @@ function CartNavigator() {
       <Stack.Navigator
         initialRouteName="Cart"
         screenOptions={({}) => ({
+          headerTitleAlign: "center",
         })}
       >
         <Stack.Screen name="Cart" component={Cart} />
@@ -15,4 +16,3 @@ function CartNavigator() {
 }
 
 export default CartNavigator;
- //Hay que crear el bottom tab, pero fijate que falta, ya sacaste el navigationcontainer y lo pusiste en app.js

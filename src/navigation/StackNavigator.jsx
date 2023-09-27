@@ -7,7 +7,7 @@ function StackNavigator() {
   return (
       <Stack.Navigator
         initialRouteName="Home"
-        screenOptions={({ route }) => ({
+        screenOptions={() => ({
           headerTitleAlign: "center",
         })}
       >
