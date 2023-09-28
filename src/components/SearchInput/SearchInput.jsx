@@ -1,8 +1,7 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./SearchInput.style";
-import { colorsPallete } from "../../constants/colorsPallete";
 
 const SearchInput = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState("");

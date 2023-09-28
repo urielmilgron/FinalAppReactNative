@@ -16,4 +16,3 @@ function OrdersNavigator() {
 }
 
 export default OrdersNavigator;
- //Hay que crear el bottom tab, pero fijate que falta, ya sacaste el navigationcontainer y lo pusiste en app.js

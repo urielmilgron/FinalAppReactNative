@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import { useState, useEffect } from "react";
 import allProducts from "../../data/products";
-import { Header, SearchInput } from "../../components";
+import { SearchInput } from "../../components";
 import styles from "./Products.style";
 
 const Products = ({ navigation, route }) => {
