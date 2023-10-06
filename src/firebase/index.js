@@ -1,0 +1,1 @@
+export const baseUrl = "https://reactncoder-default-rtdb.firebaseio.com/"

@@ -6,7 +6,6 @@ import CartItem from './components/CartItem'
 import { useSelector } from 'react-redux'
 
 const Cart = () => {
-  const counter = useSelector(state => state.counter.value)
   return (
     <View style={styles.container}>
         <FlatList
@@ -16,7 +15,6 @@ const Cart = () => {
             <CartItem dataCart={item} />
           )}
         />
-        <Text style={styles.counterValue}>{counter}</Text>
     </View>
   )
 }
