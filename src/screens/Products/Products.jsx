@@ -5,7 +5,6 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { useState, useEffect } from "react";
-import allProducts from "../../data/products";
 import { SearchInput } from "../../components";
 import styles from "./Products.style";
 import { useGetProductsByCategoryQuery } from "../../services/shopApi";
