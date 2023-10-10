@@ -4,11 +4,13 @@ import { shopApi } from "../services/shopApi";
 import { marketSlice } from "../features/shop/shopSlice";
 import cartSlice from "../features/cart/cartSlice";
 import { authApi } from "../services/authApi";
+import authSlice from "../features/auth/authSlice";
 
 const store = configureStore({
   reducer: {
     shop: marketSlice,
     cart:cartSlice,
+    auth: authSlice,
     [shopApi.reducerPath]:shopApi.reducer,
     [authApi.reducerPath]:authApi.reducer
   },

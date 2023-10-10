@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './Signup.style'
 import { useSignUpMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
+import { setUser } from '../../features/auth/authSlice'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
@@ -16,7 +17,10 @@ const Signup = () => {
     triggerSignUp({
       email,
       password,
-    })
+    }) 
+    if(result.isSuccess){
+      dispatch(setUser(result))
+    }
   }
   return (
     <View style={styles.container}>
