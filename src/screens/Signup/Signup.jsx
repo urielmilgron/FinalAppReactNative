@@ -21,6 +21,7 @@ const Signup = () => {
     if(result.isSuccess){
       dispatch(setUser(result))
     }
+   
   }
   return (
     <View style={styles.container}>
