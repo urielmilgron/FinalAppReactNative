@@ -4,7 +4,7 @@ import AuthStackNavigator from "./AuthStack";
 import BottomTabNavigator from "./BottomTabNavigator";
 
 const MainNavigator = () => {
-    const [user, setUser] = useState('null')
+    const [user, setUser] = useState()
 
   return user? <BottomTabNavigator/> : <AuthStackNavigator/> 
 };
