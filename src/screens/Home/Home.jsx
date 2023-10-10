@@ -1,17 +1,35 @@
-import { View, FlatList } from "react-native";
+import { View, FlatList, Text } from "react-native";
 import React from "react";
 import CategoryItem from "./components/CategoryItem/CategoryItem";
 import styles from "./Home.style";
 import { useGetCategoriesQuery } from "../../services/shopApi";
 
 const Home = ({ navigation }) => {
-  const { data, isLoading } = useGetCategoriesQuery();
+  const { data, isLoading, isError } = useGetCategoriesQuery();
+
+  if(isLoading){
+    return (
+      <>
+        <View style={styles.container}>
+          <Text>Estoy cargando amigo</Text>
+        </View>
+      </>
+    );
+  }
+  if(isError){
+    return (
+      <>
+        <View style={styles.container}>
+          <Text>Alto ahí, surgio un error re básico</Text>
+        </View>
+      </>
+    );
+  }
 
   return (
     <>
-      {/* <Header title={"Home"} /> */}
       <View style={styles.container}>
-        {!isLoading && (
+      
           <FlatList
             data={data}
             keyExtractor={(category) => category}
@@ -19,7 +37,7 @@ const Home = ({ navigation }) => {
               <CategoryItem navigation={navigation} category={item} />
             )}
           />
-        )}
+        
       </View>
     </>
   );

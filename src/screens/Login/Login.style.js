@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
         flex:1
     },
     loginContainer:{
-        marginTop:'40%',
+        marginTop:'10%',
         justifyContent:'space-evenly',
         alignItems:'center',
         height:280,

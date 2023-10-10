@@ -7,7 +7,7 @@ function AuthStackNavigator() {
   return (
     <AuthStack.Navigator initialRouteName="Login">
       <AuthStack.Screen name="Login" component={Login} />
-      <AuthStackStack.Screen name="Signup" component={Signup} />
+      <AuthStack.Screen name="Signup" component={Signup} />
     </AuthStack.Navigator>
   );
 }

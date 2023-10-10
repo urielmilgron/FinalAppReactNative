@@ -3,14 +3,16 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { shopApi } from "../services/shopApi";
 import { marketSlice } from "../features/shop/shopSlice";
 import cartSlice from "../features/cart/cartSlice";
+import { authApi } from "../services/authApi";
 
 const store = configureStore({
   reducer: {
     shop: marketSlice,
     cart:cartSlice,
-    [shopApi.reducerPath]:shopApi.reducer
+    [shopApi.reducerPath]:shopApi.reducer,
+    [authApi.reducerPath]:authApi.reducer
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(shopApi.middleware)
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(shopApi.middleware, authApi.middleware)
 });
 
 setupListeners(store.dispatch)
