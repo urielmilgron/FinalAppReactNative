@@ -7,15 +7,15 @@ export default styles = StyleSheet.create({
         justifyContent:'space-evenly',
         alignItems:'center'
     },
-    imageAndButton:{
-        width:'40%',
-        height:'40%',
+    imageAndButtons:{
+        width:'50%',
+        height:'60%',
         alignItems:'center',
         justifyContent:'space-evenly',
     },
     imageContainer:{
-        width:100,
-        height:100,
+        width:120,
+        height:120,
     
     },
     image:{
@@ -34,4 +34,13 @@ export default styles = StyleSheet.create({
         alignItems:'center',
         borderRadius:2,
     },
+    buttonOff:{
+        backgroundColor:'red',
+        width:'30%',
+    },
+    error:{
+        color:'red',
+        width:'100%',
+        textAlign:'center',
+    }
 })

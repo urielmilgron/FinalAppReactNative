@@ -2,7 +2,7 @@ import { View, Text, Image, Pressable } from "react-native";
 import React, { useState } from "react";
 import styles from "./Profile.style";
 import * as ImagePicker from "expo-image-picker";
-import { setCameraImage } from "../../features/auth/authSlice";
+import { clearUser, setCameraImage } from "../../features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { usePostProfileImageMutation } from "../../services/shopApi";
 
@@ -11,6 +11,8 @@ const Profile = () => {
   const {localId} = useSelector(state => state.auth)
   const [triggerSaveProfileImage, result] = usePostProfileImageMutation()
   const dispatch = useDispatch()
+  const [error, setError] = useState(null)
+  const [imageState, setimageState] = useState(null)
 
   const verifyCameraPermissions = async () => {
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
@@ -21,6 +23,7 @@ const Profile = () => {
   };
 
   const pickImage = async () => {
+    setError(null)
     const isCameraOk = await verifyCameraPermissions()
 
     if(isCameraOk){
@@ -35,16 +38,29 @@ const Profile = () => {
           dispatch(setCameraImage(`data:image/jpeg;base64,${result.assets[0].base64}`))
             //setImage(`data:image/jpeg;base64,${result.assets[0].base64}`)
         }
+    } else{
+      setError('Se necesitan permisos para tomar la foto!')
     }
   }
 
   const confirmImage = () => {
     triggerSaveProfileImage({image, localId})
     console.log(result)
+    if(result.isSuccess){
+      setimageState("La foto fue guardada con exito!")
+    } else if(result.error || result.isUninitialized){
+      setimageState("Intentelo de nuevo")
+    } if (!image){
+      setimageState("Todavia no tomó una foto!")
+    }
+  }
+
+  const sesionOff = () => {
+    dispatch(clearUser())
   }
   return (
     <View style={styles.container}>
-      <View style={styles.imageAndButton}>
+      <View style={styles.imageAndButtons}>
         <View style={styles.imageContainer}>
           <Image
             source={{
@@ -57,10 +73,15 @@ const Profile = () => {
         <Pressable style={styles.button} onPress={pickImage}>
           <Text style={{ color: "white" }}>Tomar foto</Text>
         </Pressable>
+       {error &&  <Text style={styles.error}>{error}</Text>}
         <Pressable style={styles.button} onPress={confirmImage}>
           <Text style={{ color: "white" }}>Guardar foto</Text>
         </Pressable>
+        {imageState &&  <Text style={styles.error}>{imageState}</Text>}
       </View>
+      <Pressable style={[styles.button, styles.buttonOff]} onPress={sesionOff}>
+          <Text style={{ color: "white" }}>Cerrar sesión</Text>
+        </Pressable>
     </View>
   );
 };
