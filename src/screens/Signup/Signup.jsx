@@ -5,7 +5,7 @@ import { useSignUpMutation } from '../../services/authApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../features/auth/authSlice'
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPass, setConfirmPass] = useState('')
@@ -34,7 +34,7 @@ const Signup = () => {
             <Text>Sign up</Text>
         </Pressable>
         <Text>Do you have an account?</Text>
-        <Pressable style={[styles.button, styles.buttonSign]}>
+        <Pressable style={[styles.button, styles.buttonSign]} onPress={() => navigation.navigate("Login")}>
             <Text>Login</Text>
         </Pressable>
         </View>

@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
+
 const initialState = {
   user: "userLogged",
   updatedAt: Date.now().toLocaleString(),

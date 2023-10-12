@@ -9,11 +9,12 @@ import { usePostOrderMutation } from '../../services/shopApi'
 const Cart = () => {
   const cart = useSelector(state=> state.cart.items)
   const total = useSelector(state => state.cart.total)
+  const user = useSelector(state=> state.auth.user)
   const [ triggerPost, result ] = usePostOrderMutation()
 
   const renderItem = ({item}) => <CartItem dataCart={item}/>
   const confirmOrder = () => {
-    triggerPost({total, cart, user:"userLogged"})
+    triggerPost({total, cart, user})
   }
   return (
     <View style={styles.container}>
